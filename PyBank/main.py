@@ -29,7 +29,12 @@ with open(csvpath, 'r') as csvfile:
         total_profit = sum(profit_loss)
 
     #Calculate the changes in "Profit/Losses" over the entire period
-    changes = len(months) - 1
+    for i in range (1, len(profit_loss)):
+        changes.append(profit_loss[i] - profit_loss[i-1])
+
+        #Find the average "Profit/Losses" change
+        change_average = sum(changes)/len(changes)
+       
   
 #Find the average "Profit/Losses" change
 
@@ -45,5 +50,6 @@ print("Financial Analysis")
 print("---------------------------")
 print("Total Months: ", total_months)
 print("Net Total: ", total_profit)
+print("Average Change: $", round(change_average, 2))
 
 #Export analysis to a text file
