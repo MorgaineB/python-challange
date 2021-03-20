@@ -15,7 +15,7 @@ with open(csvpath, 'r') as csvfile:
     #define lists to store data
     months = []
     profit_loss = []
-    differences = []
+    changes = []
     greatest_increase_date = ''
     greatest_decrease_date = ''
     
@@ -25,12 +25,12 @@ with open(csvpath, 'r') as csvfile:
         total_months = len(months)
 
 #Calculate the net total amount of "Profit/Losses" over the entire period
-   
-        
+        profit_loss.append(int(row[1]))
+        total_profit = sum(profit_loss)
 
-#Calculate the changes in "Profit/Losses" over the entire period
-
-
+    #Calculate the changes in "Profit/Losses" over the entire period
+    changes = len(months) - 1
+  
 #Find the average "Profit/Losses" change
 
 
@@ -44,6 +44,6 @@ with open(csvpath, 'r') as csvfile:
 print("Financial Analysis")
 print("---------------------------")
 print("Total Months: ", total_months)
-
+print("Net Total: ", total_profit)
 
 #Export analysis to a text file
