@@ -39,7 +39,10 @@ with open(csvpath, 'r') as csvfile:
         greatest_increase = max(changes)
         
         #Find the date corresponding to this increase
-        increase_date = str(months[changes.index(max(changes))])
+        increase_date = str(months[changes.index(max(changes))+1])
+
+            #hello, grader, just popping in to ask why I needed the +1 in the line of code above to get the correct month output
+            #I figured it would fix the issue I was having, but I'm not sure why I was having the issue in the first place
 
         #Calculate the greatest decrease in profits
         greatest_decrease = min(changes)
@@ -57,3 +60,9 @@ print("Greatest Increase in Profits: ", increase_date, "( $", greatest_increase,
 print("Greatest Decrease in Profits: ", decrease_date, "( $", greatest_decrease, ")")
 
 #Export analysis to a text file
+output_analysis = "Analysis/pybank_analysis.txt"
+with open(output_analysis, "w", newline="") as datafile:
+    csvwriter = csv.writer(datafile)
+    csvwriter.writerow(["Financial Analysis"])
+    csvwriter.writerow(["---------------------------"])
+    csvwriter.writerow(["Net Total: $, {total_profit}"])

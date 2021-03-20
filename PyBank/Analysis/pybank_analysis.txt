@@ -1,0 +1,3 @@
+Financial Analysis
+---------------------------
+"Net Total: $, {total_profit}"
