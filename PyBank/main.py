@@ -7,17 +7,26 @@ import csv
 #create a path to the csv file
 csvpath = os.path.join("Resources", "budget_data.csv")
 
-#read the csv file and construct csv reader
+#read the csv file and construct csv reader, skip the header
 with open(csvpath, 'r') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter = ',')
+    csv_header = next(csv_reader)
 
-
-#Calculate the total number of months included in the dataset
-    lines = len(list(csv_reader))
-    print(lines)
+    #define lists to store data
+    months = []
+    profit_loss = []
+    differences = []
+    greatest_increase_date = ''
+    greatest_decrease_date = ''
+    
+    #Calculate the total number of months included in the dataset
+    for row in csv_reader:
+        months.append(row[0])
+        total_months = len(months)
 
 #Calculate the net total amount of "Profit/Losses" over the entire period
-
+   
+        
 
 #Calculate the changes in "Profit/Losses" over the entire period
 
@@ -32,6 +41,9 @@ with open(csvpath, 'r') as csvfile:
 
 
 #Print analysis to Terminal
+print("Financial Analysis")
+print("---------------------------")
+print("Total Months: ", total_months)
 
 
 #Export analysis to a text file
