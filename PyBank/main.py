@@ -16,8 +16,8 @@ with open(csvpath, 'r') as csvfile:
     months = []
     profit_loss = []
     changes = []
-    greatest_increase_date = ''
-    greatest_decrease_date = ''
+    increase_date = ''
+    decrease_date = ''
     
     #Calculate the total number of months included in the dataset
     for row in csv_reader:
@@ -37,20 +37,23 @@ with open(csvpath, 'r') as csvfile:
 
         #Calculate the greatest increase in profits
         greatest_increase = max(changes)
+        
         #Find the date corresponding to this increase
+        increase_date = str(months[changes.index(max(changes))])
 
         #Calculate the greatest decrease in profits
         greatest_decrease = min(changes)
 
         #Find the date corresponding to this decrease 
+        decrease_date = str(months[changes.index(min(changes))])
 
 #Print analysis to Terminal
 print("Financial Analysis")
 print("---------------------------")
 print("Total Months: ", total_months)
-print("Net Total: ", total_profit)
+print("Net Total: $", total_profit)
 print("Average Change: $", round(change_average, 2))
-print("Greatest Increase in Profits: ", "( $", greatest_increase, ")")
-print("Greatest Decrease in Profits: ", "( $", greatest_decrease, ")")
+print("Greatest Increase in Profits: ", increase_date, "( $", greatest_increase, ")")
+print("Greatest Decrease in Profits: ", decrease_date, "( $", greatest_decrease, ")")
 
 #Export analysis to a text file
