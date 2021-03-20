@@ -12,7 +12,7 @@ with open(csvpath, 'r') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter = ",")
     csv_header = next(csv_reader)
 
-    #define the lists or dictionaries to store data
+    #define lists to store data
     votes = []
     candidates = []
 
@@ -20,16 +20,9 @@ with open(csvpath, 'r') as csvfile:
     for row in csv_reader:
         votes.append(row[0])
         total_votes = len(votes)
-
-        #create a complete list of candidates 
-        if row[2] not in candidates:
+        #create list of unique candidates
+        if row [2] not in candidates:
             candidates.append(row[2])
-        
-    print(candidates)
-
-    #calculate the percentage of votes each candidate won
- 
-
 
 #Print analysis to Terminal
 print("Election Results")
