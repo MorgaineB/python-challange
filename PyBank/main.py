@@ -34,16 +34,15 @@ with open(csvpath, 'r') as csvfile:
 
         #Find the average "Profit/Losses" change
         change_average = sum(changes)/len(changes)
-       
-  
-#Find the average "Profit/Losses" change
 
+        #Calculate the greatest increase in profits
+        greatest_increase = max(changes)
+        #Find the date corresponding to this increase
 
-#Calculate the greatest increase in profits (date and amount) over the entire period
+        #Calculate the greatest decrease in profits
+        greatest_decrease = min(changes)
 
-
-#Calculate the greatest decrease in profits (date and amount) over the entire peiod
-
+        #Find the date corresponding to this decrease 
 
 #Print analysis to Terminal
 print("Financial Analysis")
@@ -51,5 +50,7 @@ print("---------------------------")
 print("Total Months: ", total_months)
 print("Net Total: ", total_profit)
 print("Average Change: $", round(change_average, 2))
+print("Greatest Increase in Profits: ", "( $", greatest_increase, ")")
+print("Greatest Decrease in Profits: ", "( $", greatest_decrease, ")")
 
 #Export analysis to a text file
