@@ -32,13 +32,28 @@ with open(csvpath, 'r') as csvfile:
             candidates.append(candidate)
             vote_counts.append(1)
 
+    percentages = []
+    max_votes = vote_counts[0]
+    max_index = 0
+    #calculate the percentage of the vote each candidate got
+    #find the winner
+    for count in range(len(candidates)):
+        vote_percentages = vote_counts[count]/total_votes*100
+        percentages.append(vote_percentages)
+        if vote_counts[count] > max_votes:
+            max_votes = vote_counts[count]
+            print(max_votes)
+            max_index = count
+    winner = candidates[max_index]
+
 
 #Print analysis to Terminal
 print("Election Results")
 print("------------------")
 print("Total Votes ", total_votes)
 print("------------------")
-
-print(candidates)
-print(vote_counts)
+for count in range(len(candidates)):
+    print(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})")
+print("------------------")
+print("Winner: ", winner)
 
