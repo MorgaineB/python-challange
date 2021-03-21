@@ -63,3 +63,8 @@ output_analysis = "Analysis/pypoll_analysis.txt"
 with open(output_analysis, "w", newline="") as datafile:
     csvwriter = csv.writer(datafile)
     csvwriter.writerow(["Election Results"])
+    csvwriter.writerow(["------------------"])
+    csvwriter.writerow(["Total Votes " + str(total_votes)])
+    csvwriter.writerow(["------------------"])
+    csvwriter.writerow(["Winner " + winner])
+    csvwriter.writerow(["------------------"])
