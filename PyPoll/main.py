@@ -38,7 +38,7 @@ with open(csvpath, 'r') as csvfile:
     #calculate the percentage of the vote each candidate got
     #find the winner
     for count in range(len(candidates)):
-        vote_percentages = vote_counts[count]/total_votes*100
+        vote_percentages = round(vote_counts[count]/total_votes*100,2)
         percentages.append(vote_percentages)
         if vote_counts[count] > max_votes:
             max_votes = vote_counts[count]
@@ -56,4 +56,6 @@ for count in range(len(candidates)):
     print(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})")
 print("------------------")
 print("Winner: ", winner)
+print("------------------")
 
+#
