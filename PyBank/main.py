@@ -64,5 +64,6 @@ output_analysis = "Analysis/pybank_analysis.txt"
 with open(output_analysis, "w", newline="") as datafile:
     csvwriter = csv.writer(datafile)
     csvwriter.writerow(["Financial Analysis"])
-    csvwriter.writerow(["---------------------------"])
-    csvwriter.writerow(["Net Total: $, {total_profit}"])
+    csvwriter.writerow(["--------------------------"])
+    csvwriter.writerow(["Total Months: " + str(total_months)])
+    csvwriter.writerow(["Net Total: $" + str(total_profit)])
