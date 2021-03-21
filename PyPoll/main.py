@@ -58,4 +58,8 @@ print("------------------")
 print("Winner: ", winner)
 print("------------------")
 
-#
+#Export analysis to a text file
+output_analysis = "Analysis/pypoll_analysis.txt"
+with open(output_analysis, "w", newline="") as datafile:
+    csvwriter = csv.writer(datafile)
+    csvwriter.writerow(["Election Results"])
