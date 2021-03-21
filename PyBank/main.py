@@ -33,7 +33,7 @@ with open(csvpath, 'r') as csvfile:
         changes.append(profit_loss[i] - profit_loss[i-1])
 
         #Find the average "Profit/Losses" change
-        change_average = sum(changes)/len(changes)
+        change_average = round(sum(changes)/len(changes),2)
 
         #Calculate the greatest increase in profits
         greatest_increase = max(changes)
@@ -48,16 +48,16 @@ with open(csvpath, 'r') as csvfile:
         greatest_decrease = min(changes)
 
         #Find the date corresponding to this decrease 
-        decrease_date = str(months[changes.index(min(changes))])
+        decrease_date = str(months[changes.index(min(changes))+1])
 
 #Print analysis to Terminal
 print("Financial Analysis")
 print("---------------------------")
 print("Total Months: ", total_months)
 print("Net Total: $", total_profit)
-print("Average Change: $", round(change_average, 2))
-print("Greatest Increase in Profits: ", increase_date, "( $", greatest_increase, ")")
-print("Greatest Decrease in Profits: ", decrease_date, "( $", greatest_decrease, ")")
+print("Average Change: $", change_average)
+print("Greatest Increase in Profits: ", increase_date, "($", greatest_increase, ")")
+print("Greatest Decrease in Profits: ", decrease_date, "($", greatest_decrease, ")")
 
 #Export analysis to a text file
 output_analysis = "Analysis/pybank_analysis.txt"
@@ -67,3 +67,6 @@ with open(output_analysis, "w", newline="") as datafile:
     csvwriter.writerow(["--------------------------"])
     csvwriter.writerow(["Total Months: " + str(total_months)])
     csvwriter.writerow(["Net Total: $" + str(total_profit)])
+    csvwriter.writerow(["Average Change: $" + str(change_average)])
+    csvwriter.writerow(["Greatest Increase in Profits: " + str(increase_date) + "($" + str(greatest_increase)+ ")"])
+    csvwriter.writerow(["Greatest Decrease in Profits: " + str(decrease_date) + "($" + str(greatest_decrease)+ ")"])
