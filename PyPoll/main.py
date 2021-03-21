@@ -66,5 +66,11 @@ with open(output_analysis, "w", newline="") as datafile:
     csvwriter.writerow(["------------------"])
     csvwriter.writerow(["Total Votes " + str(total_votes)])
     csvwriter.writerow(["------------------"])
+    for count in range(len(candidates)):
+        csvwriter.writerow(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})")
+    csvwriter.writerow(["------------------"])
     csvwriter.writerow(["Winner " + winner])
     csvwriter.writerow(["------------------"])
+
+#note: I could not get the candidate and percentages section to write correctly in to the txtfile
+    # I tried imlementing the [] to resolve the issue, but then the funciton wouldn't work
